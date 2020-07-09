@@ -1,0 +1,611 @@
+body {
+	margin: 0;
+	padding: 0;
+
+	font-family: "PT Sans Narrow", Arial, sans-serif;
+
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+
+	background-color: #000;
+	background-image: url('../img/inner-bg.png');
+	background-position: 0 0;
+	background-repeat: repeat;
+}
+
+main * {
+	color: #000;
+}
+
+main h1 {
+  font-size: 30px;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* сетка внутри, размеры, цвет и тень
+ для карточки товара */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  height: 286px;
+  padding: 15px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 15px 0px rgba(0, 1, 1, 0.2);
+}
+
+.product-card__title {
+  order: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.product-card__link {
+  font-family: "PT Sans", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.product-card:nth-child(1),
+.product-card:nth-child(4) {
+  margin-right: 0;
+}
+
+.product-card__price {
+  display: flex;
+  order: 2;
+
+  background-color: #E4E4E4;
+}
+
+.product-card__price span {
+  /*display: inline-block;*/
+  width: 100%;
+  height: 34px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.breadcrumbs {
+  display: flex;
+  margin-bottom: 45px;
+ }
+
+/* ссылки в хлебных крошках */
+.breadcrumbs__link {
+  position: relative;
+  color: black;
+  padding-right: 40px;
+}
+
+.breadcrumbs__link:active,
+.breadcrumbs__link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs__link:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+  top: 7px;
+  right: 15px;
+
+  width: 8px;
+  height: 8px;
+
+  background-color: #000;
+
+  transform: rotate(45deg);
+}
+
+.breadcrumbs__link:last-child {
+  color: #aba9a7;
+  text-decoration: none;
+  cursor: default;
+}
+
+.filter__brands,
+.filter__type {
+  border: none;
+}
+
+.filter__brands legend,
+.filter__type legend {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.filter__checkbox {
+  position: relative;
+  display: block;
+  margin-bottom: 19px;
+  padding-left: 42px;
+  cursor: pointer;
+}
+
+.filter__checkbox::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+
+  border: 2px solid black;
+}
+
+.filter__icon {
+  position: absolute;
+  display: none;
+  left: 3px;
+  top: 3px;
+}
+
+/*ПОКАЗАТЬ КРЕСТИК И ОКРАСИТЬ В ШОКОЛАДНЫЙ ЦВЕТ
+  ПРИ НАВЕДЕНИИ\НАЖАТИИ
+  КРЕСТИК
+  КВАДРАТИК
+  НАДПИСЬ*/
+  .filter #check1:checked + label>.filter__icon, 
+  .filter #check2:checked + label>.filter__icon, 
+  .filter #check3:checked + label>.filter__icon, 
+  .filter #check4:checked + label>.filter__icon,
+  .filter #check5:checked + label>.filter__icon,
+  .filter #check6:checked + label>.filter__icon,
+  /*ПОКАЖИ РАДИО ТОЧКУ ПРИ НАЖАТИИ*/
+  .filter #radio1:checked + label::after,
+  .filter #radio2:checked + label::after,
+  .filter #radio3:checked + label::after {
+    display: block;
+  }
+  
+  .filter__checkbox:active,
+  .filter__checkbox:hover,
+
+  .filter__radio:active,
+  .filter__radio:hover {
+    color: #663d15;
+  }
+
+  .filter__checkbox:active::before,
+  .filter__checkbox:hover::before,
+  .filter__checkbox:focus::before,
+  .filter__checkbox:hover::before,
+
+  .filter__radio:active::before,
+  .filter__radio:hover::before {
+    border-color: #663d15;
+  }
+
+  .filter__radio:active::after,
+  .filter__radio:hover::after {
+    background-color: #663d15;
+  }
+
+  .filter__checkbox:active .filter__icon,
+  .filter__checkbox:hover .filter__icon {
+    fill: #663d15;
+  }
+
+  .filter input[type=checkbox]:disabled+label,
+  .filter input[type=radio]:disabled+label {
+    color: rgba(0, 0, 0, .3);
+    cursor: default;
+  }
+
+  .filter input[type=checkbox]:disabled+label::before,
+  .filter input[type=radio]:disabled+label::before {
+    border-color: rgba(0, 0, 0, .3);
+    cursor: default;
+  }
+
+/*РАДИО КНОПКИ*/
+
+  .filter__type .filter__title {
+    margin-bottom: 10px;
+  }
+
+  .filter__type {
+    width: 180px;
+    margin: 0;
+    margin-bottom: 40px;
+    padding: 0;
+    padding-right: 7px;
+  }
+
+  .filter__type ul {
+    list-style: none;
+  }
+
+  .filter__type ul li {
+    margin-bottom: 15px;
+  }
+
+  .filter__radio {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .filter__radio::before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: -30px;
+     box-sizing: border-box;
+     width: 18px;
+     height: 18px;
+     border: 2px solid black;
+     border-radius: 50%;
+  }
+  
+  .filter__type input {
+    position: relative;
+  }
+
+  .filter__radio::after {
+    content: "";
+
+    position: absolute;
+    top: 5px;
+    left: -25px;
+
+    display: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #000;
+  }
+
+  
+
+/* тени для картинки в catalog-item */
+.product__image {
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 1, 1, 0.2);
+}
+
+.product__image:nth-child(3), 
+.product__image:nth-child(4) {
+  margin-left: 17px;
+}
+
+/* секция описания в catalog-item */
+.product__about {
+  display: flex;
+	justify-content: space-between;
+  flex-wrap: wrap;
+	align-items: flex-start;
+  align-content: flex-start;
+
+  width: 380px;
+  padding-top: 28px;
+  padding-right: 10px;
+}
+
+.product__code {
+  color: #AEAEAE
+}
+
+.product__price {
+  width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #E4E4E4;
+}
+
+.product__about .product__title {
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.product__price span {
+  margin: 0 auto;
+}
+
+.product__price .button--price {
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.product__list {
+  margin-top: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.product__item {
+  position: relative;
+}
+
+.product__item {
+  margin-bottom: 5px;
+}
+
+.product__item::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 7px;
+  top: ;
+  display: inline-block;
+
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  transform: rotate(45deg);
+}
+
+.product-card__price span {
+  /*display: inline-block;*/
+  width: 100%;
+  height: 34px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* обертка для ценника и кнопки */
+.product-card__price {
+  display: flex;
+	justify-content: space-between;
+	/*align-items: center;*/
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-bottom: 42px;
+}
+
+/* кнопка купить */
+.button__price {
+  width: 100%;
+
+  padding: 9px;
+  margin: 0 0 0 auto;
+}
+
+.product__title {
+  width: 100%;
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 28px;
+}
+
+/* шрифты для заголовка прайса */
+.main-content__title {
+  margin: 0;
+  font-family: "PT Sans Narrow", "Arial", sans-serif;
+  font-size: 30px;
+  line-height: 42px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* заголовок списка */
+.shop__title {
+  margin: 0;
+  margin-bottom: 25px;
+  width: 240px;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+/* списки прайса */
+.shop__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* элементы списка прайса */
+.shop__item {
+  position: relative;
+  margin-bottom: 14px;
+  padding-left: 20px;
+}
+
+.shop__item::before {
+  content: "";
+
+  position: absolute;
+  top: 7px;
+  left: 0;
+  transform: rotate(45deg);
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+  
+  background-color: #000;
+}
+
+/* блок с таблицей и названием */
+.shop__price {
+  width: 49%;
+}
+
+/* сама таблица */
+.shop__table {
+  margin-top: 30px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* стили ячеек */
+.shop__cell {
+  border: 2px solid #000;
+  padding: 8px 0;
+  padding-left: 17px;
+  width: 50%;
+}
+
+/* блоки с текстом в прайсе */
+.shop__description {
+  margin: 0;
+  width: 380px;
+  margin-bottom: 78px;
+}
+
+/* ---- Сеточные стили ---- */
+
+  /* ------ СЕТКИ ДЛЯ ХЕДЕРА ------ */
+
+.main-header-logo {
+  order: 0;
+  width: 108px;
+  height: 21px;
+}
+
+.main-navigation-wrapper {
+  margin-bottom: 0;
+}
+
+.site-navigation {
+  min-width: 710px;
+}
+
+  /* ------ СЕТКИ ДЛЯ МЕЙНА ------ */
+
+.product__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product__preview {
+  width: 460px;
+}
+
+.shop__inner {
+  display: flex;
+}
+
+.shop-list + .shop__price {
+  margin-left: 235px;
+}
+
+.big-heading {
+  display: flex;
+  align-items: center;
+
+  margin-top: 55px;
+  margin-bottom: 65px;
+
+  font-size: 48px;
+  line-height: 48px;
+  text-align: center;
+}
+
+.big-heading::before,
+.big-heading::after {
+  content: "";
+
+  flex-grow: 1;
+  flex-shrink: 0;
+
+  width: 50px;
+  height: 2px;
+
+  background-color: #000;
+}
+
+.big-heading::before {
+  margin-right: 25px;
+}
+
+.big-heading::after {
+  margin-left: 25px;
+}
+
+.shop__description-wrapper {
+  display: flex;
+}
+
+.shop__description {
+  margin: 0;
+}
+
+.shop__description + .shop__description {
+  margin-left: 100px;
+}
+
+.shop__info {
+  margin-top: 50px;
+}
+
+.filter {
+  width: 320px;
+}
+
+.filter__brands {
+  position: relative;
+
+  min-height: 270px;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.filter__brands .filter__title {
+  position: absolute;
+  right: 18px;
+}
+
+.filter__brands ul {
+  margin: 50px 0 0;
+  padding: 0px;
+  list-style: none;
+}
+
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  margin-left: 10px;
+}
+
+.main-content__inner {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.pagination {
+  min-width: : 200px;
+  margin-top: 30px;
+  margin-left: 220px;
+}
+
+.pagination__page {
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+  box-sizing: border-box;
+  background-color: #000;
+  color: white;
+  padding: 10px 18px;
+}
+
+.pagination__page:hover,
+.pagination__page:active {
+  background-color: #fff;
+  color: #000;
+}
+
+.pagination__page + .pagination__page {
+  margin-left: 5px;
+}
+
+.pagination__page--active {
+  color: #000;
+  background-color: #fff;
+  cursor: default;
+}

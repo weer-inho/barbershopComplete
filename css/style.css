@@ -1,0 +1,793 @@
+body {
+	margin: 0;
+	padding: 0;
+
+	font-family: "PT Sans Narrow", "PT Sans", Arial, sans-serif;
+
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+
+	background-color: #fff;
+	background-image: url('../img/main-bg.png');
+	background-position: top center;
+	background-repeat: no-repeat;
+}
+
+a {
+	text-decoration: none;
+}
+
+a.disabled {
+pointer-events: none; /* делаем элемент неактивным для взаимодействия */
+cursor: default; /*  курсор в виде стрелки */
+color: #888;/* цвет текста серый */
+}
+
+/* чтобы картинки не вываливались */
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.button {
+	display: inline-block;
+	margin-right: 16px;
+  padding: 10px 30px;
+
+  font: inherit;
+  text-align: center;
+  color: #fff;
+  vertical-align: middle;
+  text-transform: uppercase;
+
+  background-color: #000;
+  border: none;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+	position: absolute;
+
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+
+	/*пробелы не учитываются*/
+	white-space: nowrap; 
+
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+/* коричневые кнопки при наведении */
+.button:hover,
+.button:active {
+	background-color: #663d15;
+}
+
+
+/* стили для неактивной кнопки */
+.button.disabled, 
+.button:disabled {
+	cursor: default;
+	opacity: 0.5;
+	background-color: #000;
+}
+
+.main-navigation {
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+}
+
+.site-navigation,
+.user-navigation {
+	list-style: none;
+}
+
+/* цвет текста и отступы у ссылок в наве */
+.site-navigation a,
+.user-navigation a {
+	display: block;
+	padding: 25px 20px;
+
+	color: #fff;
+}
+
+
+/* цвет выделения для ссылок */
+.site-navigation a:hover,
+.site-navigation a:focus,
+.user-navigation a:hover,
+.user-navigation a:focus {
+	background-color: #242424;
+}
+
+/*резервное место для иконки
+	у кнопки вход*/
+.user-navigation .login-link {
+	position: relative;
+	padding-left: 50px;
+}
+
+/*икнона у кнопки вход из псевдоэлемента*/
+.login-link::before {
+	content: "";
+	top: 27px;
+	left: 24px;
+
+	position: absolute;
+	width: 16px;
+	height: 18px;
+
+	background-image: url('../img/icons/login.svg');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+
+	opacity: 0.3;
+}
+
+.login-link:hover::before,
+.login-link:focus::before,
+.login-link:active::before {
+	opacity: 1;
+}
+
+/* отключаем булиты у списка преимуществ */
+.features-list {
+	list-style: none;
+}
+
+
+/* центрирую текст внутри элемента списка */
+.feature-item {
+	text-align: center;
+}	
+
+/* форматирую заголовок внутри элемента списка 
+	делаю relative, чтобы позже от заголовка
+	позиционировать ромбики под ними*/
+.feature-item h3 {
+	position: relative;
+
+	margin: 0;
+	margin-bottom: 60px;
+
+	font-size: 30px;
+	line-height: 42px;
+}
+
+
+/*белые ромбики под заголовками*/
+.feature-item h3::after {
+	content: "";
+
+	position: absolute;
+	bottom: -30px;
+	left: 50%;
+
+
+	width: 20px;
+	height: 20px;
+	margin-left: -10px;
+
+	background-color: #fff;
+
+	transform: rotate(45deg);
+}
+
+.feature-item p {
+	margin: 0px 10px;
+}
+
+/* задаю фон для белых визуальных блоков */
+.index-columns {
+	color: #000;
+
+	background-color: #f8f5f2;
+	background-image: 
+		url('img/shadow.png'),
+		url('img/inner-bg.png');
+	background-position: center, 0 0;
+	background-repeat: no-repeat, repeat;
+}
+
+/*заголовки внутри колонок*/
+.index-columns h2 {
+	margin: 0;
+	margin-bottom: 25px;
+
+	font-size: 30px;
+	line-height: 42px;
+}
+
+/* обнуляю отступы у параграфов новоестей */
+.news-list {
+	margin: 0;
+	margin-bottom: 25px;
+	padding: 0;
+
+	list-style: none;	
+}
+
+/* блок с текстом и датой */
+.news-item {
+	margin-bottom: 25px;
+}
+
+/* делаю текст ближе к дате */
+.news-item p {
+	margin: 0;
+}
+
+/* даты в новостях не аперкейсом */
+.news-item time {
+	text-transform: none;
+}
+
+/* подложка для галлерея */
+.gallery-content {
+	height: 164px;
+	margin: 0;
+
+	background-color: #ccc;
+	border:7px solid #fff;
+	margin-bottom: 40px;
+}
+
+.gallery-content img {
+	width: 286px;
+	height: 164px;
+}
+
+/* обводка для полей */
+.appointment-item input {
+	box-sizing: border-box;
+	width: 140px;
+	padding-top: 8px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 7px;
+
+	font: inherit;
+
+	background-color: transparent;
+	border: 2px solid #000;
+}
+
+/* края формы становятся коричневыми при фокусе */
+.appointment-item input:focus {
+	border-color: #663d15;
+}
+
+.appointment .button {
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+	margin-right: 0;
+}
+
+/* краски и подложка для футера */
+.main-footer {
+	color: #fff;
+
+	background-color: #212121;
+	background-image: url("../img/footer-bg.png");
+	background-position: 0 0;
+	background-repeat: repeat;
+}
+
+.footer-contacts a {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.footer-contacts a:hover,
+.footer-contacts a:focus {
+	text-decoration: none;
+}
+
+.footer-social {
+	text-align: center;
+}
+
+.footer-social ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 141px;
+	margin: 15px 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.social-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 43px;
+	height: 43px;
+
+	background-color: #000;
+}
+
+/*меняю цвет иконок соц сетей 
+при наведении*/
+.social-button:hover,
+.social-button:focus {
+	background-color: #fff;
+}
+
+/*меняю цвет самих значков
+соц сетей при наведении*/
+.social-button:hover path, 
+.social-button:focus path {
+	fill: #000;
+}
+
+.footer-copyright-wrapper,
+.footer-copyright {
+	text-align: center;
+	margin: 0 10px;
+}
+
+.footer-copyright .button {
+	display: block;
+	margin-right: 0;
+	margin-top: 10px;
+}
+
+/* в фокусе кнопки копирайта станут белыми */
+.footer-copyright .button:hover,
+.footer-copuryight .button:focus {
+	color: #000;
+
+	background-color: #fff;
+}
+
+/* фон и подложка для модальных окон */
+.modal {
+	position: fixed;
+
+	color: #000;
+
+	background-color: #f8f3f0;
+	background-image: url('img/inner-bg.png');
+	background-position: 0 0;
+	background-repeat: repeat;
+
+	box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7);	
+}
+
+.modal-login {
+	top: 120px;
+	left: 50%;
+	margin-left: -230px;
+
+	display: none;
+
+	width: 300px;
+	padding: 50px 80px;
+}
+
+.modal h2 {
+	margin: 0;
+	margin-bottom: 20px;
+
+	font-size: 30px;
+	line-height: 42px;
+}
+
+.modal-description {
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.modal-close {
+	position: absolute;
+	top: 0;
+	right: -34px;
+
+	width: 22px;
+	height: 22px;
+
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+}
+
+.modal-close::before,
+.modal-close::after {
+	content: "";
+
+	position: absolute;
+	top: 10px;
+	left: 2px;
+
+	width: 19px;
+	height: 3px;
+
+	background-color: #d0d0d0;
+}
+
+.modal-close::before {
+	transform: rotate(45deg);
+}
+
+.modal-close::after {
+	transform: rotate(-45deg);
+}
+
+.login-form p {
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+/* рамки для инпутов модального окна */
+.login-form input[type="email"],
+.login-form input[type="password"] {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px 15px;
+	padding-right: 40px;
+
+	font: inherit;
+
+	color: #000;
+	text-transform: inherit;
+
+	background-color: #f9f6f3;
+	border: 2px solid #000;
+}
+
+/* края формы становятся коричневыми при фокусе */
+.login-form input:focus {
+	border-color: #663d15;
+}
+
+.login-icon-user {
+	background-image: url(../img/icons/user.svg);
+	background-position: 270px center;
+	background-repeat: no-repeat;
+}
+
+.login-icon-password {
+	background-image: url(../img/icons/lock.svg);
+	background-position: 270px center;
+	background-repeat: no-repeat;
+}
+
+.login-form .login-help {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 15px 0;
+}
+
+.login-checkbox {
+	position: relative;
+
+	padding-left: 30px;
+
+	cursor: pointer;
+}
+
+/* цвет ЗАПОМНИТЕ МЕНЯ меняется при наведении*/
+.login-checkbox:hover,
+.login-checkbox:focus {
+	color: #663d15;
+}
+
+/*рисую квадратик перед запомните меня*/
+.login-checkbox input[type='checkbox'] + .checkbox-indicator {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 17px;
+	height: 17px;
+
+	border: 2px solid black;
+}
+
+/*если инпут чекбокса в фокусе, то нарисуй коричневую
+рамку вокруг квадратика*/
+.login-checkbox input[type='checkbox']:focus + .checkbox-indicator {
+	border-color: #663d15;
+	outline: thin dotted;
+	outline: 5px auto -webkit-focus-ring-color;
+}
+
+/*Если чекбокс в состоянии ЧЕКД
+	то нарисуй псевдоэлементы ЗАПОМНИТЕ МЕНЯ*/
+.login-checkbox input[type='checkbox']:checked + .checkbox-indicator::before,
+.login-checkbox input[type='checkbox']:checked + .checkbox-indicator::after {
+	content: "";
+
+	position: absolute;
+	top: 8px;
+	left: 1px;
+
+	width: 15px;
+	height: 2px;
+
+	background-color: #000;
+}
+
+/*поворачиваю палочки в квадратике перед запомните меня*/
+.login-checkbox input[type='checkbox']:checked + .checkbox-indicator::before {
+	transform: rotate(45deg);
+}
+.login-checkbox input[type='checkbox']:checked + .checkbox-indicator::after {
+	transform: rotate(-45deg);
+}
+
+.login-form .button {
+	width: 100%;
+	margin-right: 0;
+}
+
+/* цвет для Я ЗАБЫЛ ПАРОЛЬ! */
+.restore {
+	color: #000;
+	text-decoration: underline;
+}
+
+/* Я ЗАБЫЛ ПАРОЛЬ без подчеркивания при наведении */
+.restore:hover,
+.restore:focus {
+	text-decoration: none;
+}
+
+.modal-map {
+	top: 50%;
+	left: 50%;
+
+	display: none;
+	width: 766px;
+	height: 561px;
+	margin-top: -280px;
+	margin-left: -390px;
+
+	border: 7px solid white;
+}
+
+.modal-map p {
+	margin: 0;
+}
+
+/*класс для js*/
+.modal-show {
+	display: block;
+
+	animation: bounce 0.6s;
+}
+
+/* ---- Сеточные стили ---- */
+
+/* фикс ширина и отцентрирован по горизонтали */
+.container {
+	width: 940px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+		/* ------ СЕТКИ ДЛЯ ХЕДЕРА ------ */
+
+/* минВысота и отступ вниз до некст блока */
+.main-header {
+	margin-bottom: 50px;
+}
+
+/* нав занимает весь хедер */
+.main-navigation {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* размеры для главного логотипа */
+.main-header-logo {
+	order: 2;
+	width: 368px;
+	height: 153px;
+}
+  
+/* обертка\черная полосочка наверху.
+список и кнопка входа*/
+.main-navigation-wrapper {
+	min-width: 100%;
+	margin-bottom: 60px;
+
+	background-color: #000;
+
+}
+
+/* распределяю элементы на черной полосочке */
+.main-navigation-wrapper .container {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* обнуляю список в наве
+	делаю навигацию расширяемой */
+.site-navigation {
+	display: flex;
+	flex-wrap: wrap;
+
+	width: 620px;
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+/* задаю кнопке вход те же стили, что
+и для первого списка, 
+теперь они визуально равны */
+.user-navigation {
+	display: flex;
+
+	min-width: 140px;
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+		/* ------ СЕТКИ ДЛЯ МЕЙНА ------ */
+
+.features {
+	margin-bottom: 80px;
+}
+
+/* список(ul) с преимуществами */
+.features-list {
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+}
+
+/* сами элементы списка(ul) */
+.feature-item {
+	width: 300px;
+
+}
+
+.index-columns {
+	display: flex;
+	justify-content: space-between;
+	padding: 50px 80px;
+	margin-bottom: 35px;
+}
+
+.news {
+	width: 380px;
+}
+
+.gallery {
+	width: 380px;
+	margin-left: 175px;
+}
+
+.gallery-container {
+	position: relative;
+
+	height: 260px;
+}
+
+.gallery h2 {
+	margin-left: 10px;
+}
+
+.gallery-button {
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 0;
+
+	width: 140px;
+	margin: 0;
+}
+
+.gallery-button-back {
+	left: 0;
+}
+
+.gallery-button-next {
+	right: 0;
+}
+
+.contacts {
+	width: 380px;
+}
+
+.contacts p {
+	margin: 0;
+	margin-bottom: 25px;
+}
+
+.appointment {
+	width: 300px;
+}
+
+.appointment-form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.appointment-item {
+	width: 140px;
+	margin: 0;
+	margin-bottom: 10px;
+
+}
+
+.appointment-item label {
+	display: block;
+	margin-bottom: 9px;
+	margin-left: 15px;
+
+}
+
+	/* ------ СЕТКИ ДЛЯ ФУТЕРА ------ */
+
+.main-footer {
+	padding: 60px 0;
+	margin-top: 65px;
+}
+
+.main-footer .container {
+	display: flex;
+}
+
+.footer-contacts {
+	width: 320px;
+	margin: 0;
+	margin-right: 80px;
+
+}
+
+.footer-social {
+	width: 145px;
+}
+
+.footer-social p {
+	margin: 0;
+}
+
+/* обертка для копирайтов*/
+.footer-copyright-wrapper {
+	display: flex;
+	margin-left: auto;
+}
+
+/* ---- АНИМАЦИИ ---- */
+	@keyframes bounce {
+		0% {transform: translateY(-2000px);}
+		70% {transform: translateY(30px)}
+		90%	{transform: translateY(-10px)}
+		100% {transform: translateY(0);}
+	}
+
+	@keyframes shake {
+		0%, 100% 				{transform: translateX(0);		}
+		10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+		20%, 40%, 60%, 80%		{transform: translateX(10px);	}
+	}
+
+	.modal-error {
+		animation: shake 0.6s;
+	}
